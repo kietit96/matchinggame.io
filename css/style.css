@@ -1,0 +1,133 @@
+* {
+    box-sizing: content-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#boxgame {
+    background: chocolate;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#result-game {
+    margin: 0px 0px 15px 0px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.container {
+    width: 50%;
+    height: 80%;
+    background: #FFF;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0px 15px;
+}
+
+.container h2 {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    color: blueviolet;
+    text-transform: uppercase;
+}
+
+.box-game-container {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 79%;
+}
+
+#game-container {
+    --cols: 1;
+    width: 100%;
+    height: 100%;
+    display: inline-grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--cols), 1fr);
+    column-gap: 2px;
+    row-gap: 2px;
+    vertical-align: top;
+    margin: 0px;
+    position: relative;
+    z-index: 0;
+}
+
+#game-container .item-game {
+    background: #000;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#game-container .item-game .overlay {
+    background: #545454;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    transform-origin: bottom;
+    transform: translateY(0)
+}
+
+#game-container .item-game.active .overlay {
+    transform: translateY(+100%);
+}
+
+#begin-play-game {
+    background: #FF2000;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-weight: 800;
+    font-size: 50px;
+    padding: 0px 15px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#game-container .item-game.animation {
+    animation: ticking 0.5s 1 ease-in-out;
+}
+
+@keyframes ticking {
+    0% {
+        transform: rotate(6deg);
+    }
+
+    25% {
+        transform: rotate(-6deg);
+    }
+
+    50% {
+        transform: rotate(6deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
