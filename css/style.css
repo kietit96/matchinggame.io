@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    width: 50%;
+    width: 90%;
     height: 80%;
     background: #FFF;
     border-radius: 15px;
@@ -109,7 +109,11 @@ body {
 #game-container .item-game.animation {
     animation: ticking 0.5s 1 ease-in-out;
 }
-
+@media (min-width: 900px) {
+    .container {
+        width: 50%;
+    }
+}
 @keyframes ticking {
     0% {
         transform: rotate(6deg);
